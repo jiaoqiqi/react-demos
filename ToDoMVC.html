@@ -10,8 +10,14 @@
     h1 {
         color: palevioletred;
         font-size: 40px;
-        font-family:Monospace;
+        font-family: Monospace;
     }
+
+    .wider-size{
+        width:20px;
+        height:;
+    }
+
 </style>
 <div id="example"></div>
 <script type="text/babel">
@@ -52,12 +58,14 @@
                         <h1>ToDos</h1>
 
                         <form onSubmit={this.handleSubmit}>
-                            <input onChange={this.onChange} value={this.state.text}/>
+                            <input
+                                    type="text" placeholder="What needs to be done?" required
+                                   onChange={this.onChange} value={this.state.text}/>
 
                         </form>
                         <TodoList items={this.state.items}/>
 
-                        <button>{'count:' + this.state.items.length}</button>
+                        <button >{'count:' + this.state.items.length}</button>
 
                     </div>
             );
