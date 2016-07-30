@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Example with JSX</title>
+  </head>
+  <body>
+  <div id="container"></div>
+
+    <script src="../../build/react.js"></script>
+    <script src="../../build/react-dom.js"></script>
+    <script src="../../build/browser.min.js"></script>
+    <script type="text/babel">
+      var Counter = React.createClass({
+        getInitialState:function () {
+          return {
+            count :0
+          }
+        },
+
+        increment:function(){
+          this.setState({count:this.state.count +1 })
+        },
+
+        render:function () {
+          return (
+                  <div>
+                    <h1>数量： {this.state.count}</h1>
+                    <button onClick = {this.increment}> +1</button>
+                  </div>
+          )
+        }
+      })
+
+      ReactDOM.render(<Counter/>,document.getElementById('container'))
+    </script>
+
+  </body>
+</html>
