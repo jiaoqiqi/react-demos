@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+<style>
+    h1 {
+        color: palevioletred;
+    }
+</style>
+<div id="example"></div>
+<script type="text/babel">
+
+    const TodoList = React.createClass({
+
+        render: function () {
+            const createItem = function (itemText) {
+                return <div><input value={itemText}></input></div>;
+
+            };
+            return <div>{this.props.items.map(createItem)}</div>;
+
+        }
+    });
+
+    const MyInput = React.createClass({
+
+        getInitialState: function () {
+            return {items: [], text: ''};
+
+        },
+
+        onChange: function (e) {
+            this.setState({text: e.target.value});
+        },
+
+        handleSubmit: function (e) {
+            e.preventDefault();
+            const nextItems = this.state.items.concat([this.state.text]);
+            const nextText = '';
+            this.setState({items: nextItems, text: nextText});
+        },
+
+        render: function () {
+            return (
+                    <div>
+                        <h1>ToDos</h1>
+
+                        <form onSubmit={this.handleSubmit}>
+                            <input onChange={this.onChange} value={this.state.text}/>
+
+                        </form>
+                        <TodoList items={this.state.items}/>
+
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<MyInput />, document.getElementById("example"));
+</script>
+</body>
+</html>
