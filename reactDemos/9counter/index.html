@@ -17,15 +17,12 @@
             count :0
           }
         },
-
         increment:function(){
           this.setState({count:this.state.count +1 })
         },
-
         del:function () {
             this.setState({count:this.state.count -1})
         },
-
         render:function () {
           return (
                   <div>
@@ -36,7 +33,6 @@
           )
         }
       })
-
       ReactDOM.render(<Counter/>,document.getElementById('container'))
     </script>
 
